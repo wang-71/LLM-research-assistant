@@ -57,41 +57,43 @@ uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
 http://127.0.0.1:8000/docs
 ```
 
-Use the interactive UI to test all endpoints.
+## Using the Topic Mode via Swagger UI (`/docs`)
 
-## Step-by-step
+After starting the server, open the interactive Swagger UI:
 
-In Swagger UI, locate POST /run/topic.
+```text
+http://127.0.0.1:8000/docs
+```
 
-Click POST /run/topic to expand it.
+### Step-by-step
 
-Click Try it out.
+1. In Swagger UI, locate **POST `/run/topic`**.
+2. Click **POST `/run/topic`** to expand it.
+3. Click **Try it out**.
+4. In the request body, enter your research topic:
 
-In the request body, enter your research topic:
-
+```json
 {
   "topic": "reinforcement learning for combinatorial optimization"
 }
+```
 
-Click Execute.
+5. Click **Execute**.
 
-What you will get
+### What you will get
 
-The API returns a strict JSON object (validated against a schema). The response includes:
+The API returns a **strict JSON** object (validated against a schema). The response includes:
 
-trace_id: unique run identifier for debugging and trace retrieval
+- `trace_id`: unique run identifier for debugging and trace retrieval
+- `input`: the input payload (mode + topic)
+- `related_works` (3–5): ranked papers with `title`, `year`, `url`, and brief contributions
+- `reproduction_checklist` (5–10): steps needed to reproduce or re-implement related work
+- `action_items` (exactly 5): prioritized next steps (`high` / `medium` / `low`)
+- `quality`: schema validation status and self-check metadata
 
-input: the input payload (mode + topic)
+### Example response (schema shape)
 
-related_works (3–5): ranked papers with title/year/url and brief contributions
-
-reproduction_checklist (5–10): steps needed to reproduce or re-implement related work
-
-action_items (exactly 5): prioritized next steps
-
-quality: schema validation status and self-check metadata
-
-Example response (schema shape)
+```json
 {
   "trace_id": "trace_20260204_123456",
   "input": {
@@ -125,8 +127,14 @@ Example response (schema shape)
     "self_checks": ["json_schema_v1"]
   }
 }
-View execution trace (optional)
+```
 
-You can inspect the agent’s execution trace using the returned trace_id:
+### View execution trace (optional)
+
+Each response contains a `trace_id`. You can retrieve the full execution trace:
+
+```bash
+curl http://127.0.0.1:8000/trace/trace_20260204_123456
+```
 
 
