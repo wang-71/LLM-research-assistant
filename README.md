@@ -38,7 +38,7 @@ The system is exposed as a FastAPI service and emphasizes structured outputs, sc
 ## Running the Service Locally
 
 1. Install Dependencies
-bash
-'''
+```bash
 pip install fastapi uvicorn pydantic python-multipart
-···
+```
+
