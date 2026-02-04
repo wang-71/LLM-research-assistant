@@ -42,3 +42,20 @@ The system is exposed as a FastAPI service and emphasizes structured outputs, sc
 pip install fastapi uvicorn pydantic python-multipart
 ```
 
+2. Set Environment Variables
+```bash
+$env:OPENAI_API_KEY="your_api_key"
+```
+
+3. Start the FastAPI Server
+```bash
+uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
+```
+
+4. Open Swagger UI
+```bash
+http://127.0.0.1:8000/docs
+```
+
+Use the interactive UI to test all endpoints.
+
