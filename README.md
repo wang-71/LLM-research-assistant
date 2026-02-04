@@ -6,9 +6,10 @@ The system is exposed as a FastAPI service and emphasizes structured outputs, sc
 ## Key Features
 
 - Two operating modes
-Topic mode: Literature review driven by a research topic
 
-PDF mode: Paper-centric analysis using uploaded PDFs
+  Topic mode: Literature review driven by a research topic
+
+  PDF mode: Paper-centric analysis using uploaded PDFs
 
 - Schema-first design
 
