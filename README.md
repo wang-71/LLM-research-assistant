@@ -13,24 +13,24 @@ The system is exposed as a FastAPI service and emphasizes structured outputs, sc
 
 - Schema-first design
 
-All LLM outputs are validated against a strict JSON schema
+  All LLM outputs are validated against a strict JSON schema
 
-Automatic output coercion and correction to prevent invalid responses
+  Automatic output coercion and correction to prevent invalid responses
 
 - Reproducibility-oriented outputs
 
-Explicit reproduction checklists
+  Explicit reproduction checklists
 
-Conservative claims when evidence is unclear
+  Conservative claims when evidence is unclear
 
 - Observability & traceability
 
-Each run is assigned a unique trace_id
+  Each run is assigned a unique trace_id
 
-Execution traces can be retrieved for inspection and debugging
+  Execution traces can be retrieved for inspection and debugging
 
 - FastAPI-based service
 
-Simple REST API
+  Simple REST API
 
-Interactive Swagger UI for testing
+  Interactive Swagger UI for testing
