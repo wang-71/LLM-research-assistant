@@ -34,3 +34,11 @@ The system is exposed as a FastAPI service and emphasizes structured outputs, sc
   Simple REST API
 
   Interactive Swagger UI for testing
+
+## Running the Service Locally
+
+1. Install Dependencies
+bash
+'''
+pip install fastapi uvicorn pydantic python-multipart
+···
