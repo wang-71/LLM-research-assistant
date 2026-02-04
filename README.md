@@ -59,3 +59,74 @@ http://127.0.0.1:8000/docs
 
 Use the interactive UI to test all endpoints.
 
+## Step-by-step
+
+In Swagger UI, locate POST /run/topic.
+
+Click POST /run/topic to expand it.
+
+Click Try it out.
+
+In the request body, enter your research topic:
+
+{
+  "topic": "reinforcement learning for combinatorial optimization"
+}
+
+Click Execute.
+
+What you will get
+
+The API returns a strict JSON object (validated against a schema). The response includes:
+
+trace_id: unique run identifier for debugging and trace retrieval
+
+input: the input payload (mode + topic)
+
+related_works (3–5): ranked papers with title/year/url and brief contributions
+
+reproduction_checklist (5–10): steps needed to reproduce or re-implement related work
+
+action_items (exactly 5): prioritized next steps
+
+quality: schema validation status and self-check metadata
+
+Example response (schema shape)
+{
+  "trace_id": "trace_20260204_123456",
+  "input": {
+    "mode": "topic",
+    "topic": "reinforcement learning for combinatorial optimization"
+  },
+  "related_works": [
+    {
+      "title": "Example Paper Title",
+      "year": 2020,
+      "url": "https://arxiv.org/abs/xxxx.xxxxx",
+      "key_contribution": "1–2 sentence summary of the key contribution.",
+      "relevance_reason": "Why this paper is relevant to the topic."
+    }
+  ],
+  "reproduction_checklist": [
+    {
+      "task": "Identify datasets / benchmarks used in the paper(s)",
+      "why": "Required to reproduce results"
+    }
+  ],
+  "action_items": [
+    { "action": "Define the target problem setting and evaluation metrics", "priority": "high" },
+    { "action": "Collect and preprocess representative datasets", "priority": "high" },
+    { "action": "Re-implement or adapt a strong baseline", "priority": "medium" },
+    { "action": "Run ablations and sensitivity analyses", "priority": "medium" },
+    { "action": "Document results and draft the related work section", "priority": "low" }
+  ],
+  "quality": {
+    "schema_valid": true,
+    "self_checks": ["json_schema_v1"]
+  }
+}
+View execution trace (optional)
+
+You can inspect the agent’s execution trace using the returned trace_id:
+
+
