@@ -52,11 +52,6 @@ $env:OPENAI_API_KEY="your_api_key"
 uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
 ```
 
-4. Open Swagger UI
-```bash
-http://127.0.0.1:8000/docs
-```
-
 ## Using the Topic Mode via Swagger UI (`/docs`)
 
 After starting the server, open the interactive Swagger UI:
